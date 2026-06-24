@@ -1,6 +1,5 @@
-[deploy]
-startCommand = "node src/index.js"
-healthcheckPath = "/"
-
 [build]
 buildCommand = "npm install && node src/deploy-commands.js"
+
+[deploy]
+startCommand = "node src/index.js"
