@@ -1,0 +1,13 @@
+{
+  "name": "marche-cotes-bot",
+  "version": "1.0.0",
+  "description": "Bot Discord Betclic FR - Marché des cotes dynamiques",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "deploy": "node src/deploy-commands.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.0"
+  }
+}
