@@ -9,6 +9,7 @@ const commands = [
     .addIntegerOption(o => o.setName('amount').setDescription('Nombre de points').setRequired(true).setMinValue(1)),
 
   new SlashCommandBuilder()
+    .setName('create-market')
     .setDescription('Crée un marché des cotes')
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addStringOption(o => o.setName('titre').setDescription('Titre du marché').setRequired(true))
@@ -17,18 +18,20 @@ const commands = [
     .addStringOption(o => o.setName('choix2').setDescription('Choix 2').setRequired(true))
     .addStringOption(o => o.setName('choix3').setDescription('Choix 3').setRequired(true))
     .addChannelOption(o => o.setName('channel').setDescription('Channel cible (défaut : channel actuel)').addChannelTypes(ChannelType.GuildText).setRequired(false))
-    .addStringOption(o => o.setName('image').setDescription('URL d\'une image à afficher dans l\'embed').setRequired(false)),
+    .addStringOption(o => o.setName('image').setDescription("URL d'une image à afficher dans l'embed").setRequired(false)),
 
   new SlashCommandBuilder()
     .setName('set-market-result')
     .setDescription('Déclare le résultat d\'un marché et crédite les gagnants')
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
     .addStringOption(o => o.setName('market_id').setDescription('ID du marché (fourni à la création)').setRequired(true))
-    .addIntegerOption(o => o.setName('gagnant').setDescription('Numéro du choix gagnant (1, 2 ou 3)').setRequired(true).addChoices(
-      { name: 'Choix 1', value: 1 },
-      { name: 'Choix 2', value: 2 },
-      { name: 'Choix 3', value: 3 },
-    )),
+    .addIntegerOption(o => o.setName('gagnant').setDescription('Numéro du choix gagnant (1, 2 ou 3)').setRequired(true)
+      .addChoices(
+        { name: 'Choix 1', value: 1 },
+        { name: 'Choix 2', value: 2 },
+        { name: 'Choix 3', value: 3 },
+      )
+    ),
 
   new SlashCommandBuilder()
     .setName('close-market')
